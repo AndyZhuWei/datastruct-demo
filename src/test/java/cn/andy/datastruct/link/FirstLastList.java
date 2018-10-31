@@ -1,32 +1,50 @@
 package cn.andy.datastruct.link;
 
-public class LinkList {
+public class FirstLastList {
 
-    private Link first;
+    private Link2 first;
+    private Link2 last;
 
-    public LinkList() {
+    public FirstLastList() {
         first = null;
+        last = null;
     }
 
     public boolean isEmpty() {
         return (first == null);
     }
 
-    public void insertFirst(int id, double dd) {
-        Link newLink = new Link(id, dd);
+    public void insertFirst(long dd) {
+        Link2 newLink = new Link2(dd);
+        if(isEmpty()) {
+            last = newLink;
+        }
         newLink.next = first;
         first = newLink;
     }
 
-    public Link deleteFirst() {
-        Link temp = first;
+    public void insertLast(long dd) {
+        Link2 newLink = new Link2(dd);
+        if(isEmpty()) {
+            first = newLink;
+        } else {
+            last.next=newLink;
+        }
+        last = newLink;
+    }
+
+    public long deleteFirst() {
+        long temp = first.dData;
+        if(first.next==null) {
+            last = null;
+        }
         first = first.next;
         return temp;
     }
 
     public void displayList() {
         System.out.print("List (first-->last):");
-        Link current = first;
+        Link2 current = first;
         while(current!=null) {
             current.displayLink();
             current=current.next;
@@ -34,7 +52,7 @@ public class LinkList {
         System.out.println(" ");
     }
 
-    public Link find(int key) {
+   /* public Link find(int key) {
         Link current = first;
         while(current.iData!=key) {
             if(current.next == null) {
@@ -63,5 +81,5 @@ public class LinkList {
             previous.next=current.next;
         }
         return current;
-    }
+    }*/
 }
