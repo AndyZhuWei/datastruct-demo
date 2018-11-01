@@ -113,4 +113,118 @@ public class LinkTests extends DemoApplicationTests {
         theStack.displayStack();
     }
 
+
+    /**
+     * 测试用链表结构实现的队列
+     */
+    @Test
+    public void test5() {
+        LinkQueue theQueue = new LinkQueue();
+
+        theQueue.insert(20);
+        theQueue.insert(40);
+
+        theQueue.displayQueue();
+
+        theQueue.insert(60);
+        theQueue.insert(80);
+
+        theQueue.displayQueue();
+
+        theQueue.remove();
+        theQueue.remove();
+
+        theQueue.displayQueue();
+    }
+
+    /**
+     * 测试用链表结构实现的有序队列
+     */
+    @Test
+    public void test6() {
+        SortedList theSortedList = new SortedList();
+
+        theSortedList.insert(20);
+        theSortedList.insert(40);
+
+        theSortedList.displayList();
+
+        theSortedList.insert(10);
+        theSortedList.insert(30);
+        theSortedList.insert(50);
+
+        theSortedList.displayList();
+
+        theSortedList.remove();
+
+        theSortedList.displayList();
+    }
+
+
+    /**
+     * 测试表插入排序
+     */
+    @Test
+    public void test7() {
+
+        int size = 10;
+
+        Link2[] linkArray = new Link2[size];
+
+        for(int j=0;j<size;j++) {
+            int n = (int)(Math.random()*99);
+            Link2 newLink = new Link2(n);
+            linkArray[j]=newLink;
+        }
+        System.out.print("Unsorted array:");
+        for(int j=0;j<size;j++) {
+            System.out.print(linkArray[j].dData+" ");
+        }
+        System.out.println("");
+
+        SortedList theSortedList = new SortedList(linkArray);
+
+        for(int j=0;j<size;j++) {
+            linkArray[j]=theSortedList.remove();
+        }
+        System.out.print("Sorted Array:  ");
+        for(int j=0;j<size;j++) {
+            System.out.print(linkArray[j].dData+" ");
+        }
+        System.out.println("");
+    }
+
+    /**
+     * 测试双向链表
+     */
+    @Test
+    public void test8() {
+        DoublyLinked theList = new DoublyLinked();
+        theList.insertFirst(22);
+        theList.insertFirst(44);
+        theList.insertFirst(66);
+
+        theList.insertLast(11);
+        theList.insertLast(33);
+        theList.insertLast(55);
+
+        theList.displayForward();
+        theList.displayBackward();
+
+        theList.deleteFirst();
+        theList.deleteLast();
+        theList.deleteKey(11);
+
+        theList.displayForward();
+
+        theList.insertAfter(22,77);
+        theList.insertAfter(33,88);
+
+        theList.displayForward();
+    }
+
+
+
+
+
 }

@@ -1,5 +1,8 @@
 package cn.andy.datastruct.link;
 
+/**
+ * 定义两个数据域的链结点
+ */
 public class Link {
     public int iData;
     public double dData;
